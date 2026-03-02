@@ -1,0 +1,1424 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WGLT Black Historical Figure Quotes
+    :root{
+      --bg:#0b0c10;
+      --panel:#10131a;
+      --panel2:#0f1116;
+      --text:#f2f4ff;
+      --muted:#b8bfd6;
+
+      /* Pan-African */
+      --red:#d62828;
+      --green:#2a9d3f;
+      --gold:#f2c14e;
+
+      --outline:rgba(255,255,255,.09);
+      --shadow:0 16px 40px rgba(0,0,0,.45);
+      --radius:18px;
+
+      --btn:#171b26;
+      --btn2:#1c2130;
+
+      --danger:#ff4d4d;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      background: radial-gradient(900px 500px at 20% 0%, rgba(214,40,40,.18), transparent 60%),
+                  radial-gradient(900px 500px at 80% 0%, rgba(42,157,63,.14), transparent 60%),
+                  radial-gradient(900px 600px at 50% 110%, rgba(242,193,78,.13), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      min-height:100vh;
+    }
+
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:18px 14px 26px;
+    }
+
+    header{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    .title h1{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .title .sub{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.2;
+    }
+
+    .badge{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 10px;
+      border:1px solid var(--outline);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+      font-size:12px;
+      color:var(--muted);
+      user-select:none;
+      white-space:nowrap;
+    }
+    .dot{ width:8px;height:8px;border-radius:50%; background:var(--gold); box-shadow:0 0 0 4px rgba(242,193,78,.18); }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      gap:14px;
+    }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns:1fr; }
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--outline);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:14px;
+      overflow:hidden;
+    }
+
+    .controls{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    label{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    select, button{
+      border-radius:12px;
+      border:1px solid var(--outline);
+      background:rgba(0,0,0,.22);
+      color:var(--text);
+      padding:10px 12px;
+      font-size:14px;
+      outline:none;
+    }
+    select{ width:100%; }
+    button{
+      background:linear-gradient(180deg, rgba(242,193,78,.18), rgba(255,255,255,.03));
+      cursor:pointer;
+      transition: transform .06s ease, filter .2s ease;
+      user-select:none;
+    }
+    button:hover{ filter:brightness(1.05); }
+    button:active{ transform:scale(.99); }
+
+    .btnGhost{
+      background:rgba(255,255,255,.04);
+    }
+    .btnRed{
+      background:linear-gradient(180deg, rgba(214,40,40,.25), rgba(255,255,255,.03));
+    }
+
+    .meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:4px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .playHeader{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+
+    .modePill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--outline);
+      background:rgba(0,0,0,.18);
+      font-size:12px;
+      color:var(--muted);
+      user-select:none;
+    }
+    .modeIcon{
+      width:8px;height:8px;border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 0 4px rgba(42,157,63,.16);
+    }
+
+    .hud{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .hudBox{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      padding:8px 10px;
+      border:1px solid var(--outline);
+      border-radius:12px;
+      background:rgba(255,255,255,.03);
+      min-width:92px;
+    }
+    .hudBox .k{ font-size:11px; color:var(--muted); }
+    .hudBox .v{ font-size:14px; font-weight:650; }
+
+    /* Timer ring */
+    .ring{
+      width:44px;height:44px;
+      border-radius:50%;
+      border:3px solid rgba(242,193,78,.25);
+      position:relative;
+      overflow:hidden;
+    }
+    .ring > .fill{
+      position:absolute; inset:0;
+      background: conic-gradient(var(--gold) var(--deg), rgba(255,255,255,0) 0);
+      border-radius:50%;
+    }
+    .ring > .center{
+      position:absolute; inset:6px;
+      background:rgba(0,0,0,.35);
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:12px; color:var(--text);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .ring.danger{ border-color: rgba(214,40,40,.35); }
+    .ring.danger .fill{ background: conic-gradient(var(--red) var(--deg), rgba(255,255,255,0) 0); }
+
+    /* Stage areas */
+    .stage{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .quoteBox{
+      border:1px dashed rgba(255,255,255,.16);
+      border-radius:14px;
+      padding:12px;
+      background:rgba(0,0,0,.18);
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      line-height:1.35;
+      font-size:16px;
+    }
+    @media (max-width: 520px){
+      .quoteBox{ font-size:15px; }
+    }
+
+    .prompt{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:-2px;
+    }
+
+    /* Word ordering */
+    .answerStrip{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      padding:10px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--outline);
+      min-height:54px;
+      align-content:flex-start;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.22);
+      font-size:14px;
+      max-width:100%;
+      user-select:none;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .chip.good{ border-color: rgba(42,157,63,.35); box-shadow:0 0 0 3px rgba(42,157,63,.12) inset; }
+    .chip.bad{ border-color: rgba(214,40,40,.35); box-shadow:0 0 0 3px rgba(214,40,40,.10) inset; opacity:.92; }
+
+    .wordBank{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      padding:10px;
+      border-radius:14px;
+      background:rgba(0,0,0,.20);
+      border:1px solid var(--outline);
+      max-height:260px;
+      overflow:auto; /* safe on small screens */
+      align-content:flex-start;
+    }
+
+    .wordBtn{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      cursor:pointer;
+      user-select:none;
+      font-size:14px;
+      line-height:1;
+      flex: 0 0 auto;
+      max-width:100%;
+      transition: transform .06s ease, filter .2s ease, opacity .2s ease;
+    }
+    .wordBtn:hover{ filter:brightness(1.06); }
+    .wordBtn:active{ transform:scale(.99); }
+    .wordBtn.used{
+      opacity:.45;
+      cursor:default;
+      text-decoration: line-through;
+    }
+
+    /* Flash & Fill (tap choices) */
+    .fillGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+    .fillLine{
+      padding:10px;
+      border:1px solid var(--outline);
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+    }
+    .fillText{
+      font-size:15px;
+      line-height:1.35;
+      margin-bottom:8px;
+      word-wrap:break-word;
+    }
+    .blank{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:2px 10px;
+      border-radius:999px;
+      border:1px dashed rgba(242,193,78,.40);
+      background:rgba(242,193,78,.10);
+      min-width:68px;
+      font-weight:700;
+    }
+    .choiceRow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .choiceBtn{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.22);
+      cursor:pointer;
+      user-select:none;
+      font-size:13px;
+    }
+    .choiceBtn.pick{
+      border-color: rgba(42,157,63,.35);
+      box-shadow: 0 0 0 3px rgba(42,157,63,.12) inset;
+    }
+
+    /* Visual Spark */
+    .visualGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+    }
+    @media (max-width: 520px){
+      .visualGrid{ grid-template-columns:1fr; }
+    }
+    .vCard{
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      padding:12px;
+      cursor:pointer;
+      user-select:none;
+      min-height:112px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      transition: transform .06s ease, filter .2s ease;
+    }
+    .vCard:hover{ filter:brightness(1.06); }
+    .vCard:active{ transform:scale(.99); }
+    .vIcon{
+      font-size:34px;
+      line-height:1;
+    }
+    .vLabel{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* Modal */
+    .modalBackdrop{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,.62);
+      padding:18px;
+      z-index:50;
+    }
+    .modal{
+      width:min(520px, 100%);
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.16);
+      background:linear-gradient(180deg, rgba(16,19,26,.96), rgba(10,12,16,.96));
+      box-shadow:0 20px 60px rgba(0,0,0,.55);
+      padding:14px;
+    }
+    .modalTop{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:8px;
+    }
+    .modalTitle{
+      font-weight:800;
+      font-size:14px;
+      letter-spacing:.2px;
+    }
+    .x{
+      width:34px;height:34px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      cursor:pointer;
+    }
+    .modalBody{
+      color:var(--text);
+      line-height:1.35;
+      font-size:14px;
+    }
+    .modalBody .speaker{
+      margin-top:10px;
+      padding:10px;
+      border-radius:14px;
+      border:1px solid rgba(42,157,63,.25);
+      background:rgba(42,157,63,.08);
+    }
+    .modalBody .speaker b{
+      color:var(--green);
+    }
+    .modalActions{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+    }
+
+    /* End screen */
+    .endBox{
+      display:none;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.22);
+    }
+    .endGrid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:10px;
+    }
+    @media (max-width:520px){
+      .endGrid{ grid-template-columns:1fr; }
+    }
+    .stat{
+      padding:10px;
+      border-radius:14px;
+      border:1px solid var(--outline);
+      background:rgba(255,255,255,.03);
+    }
+    .stat .k{ color:var(--muted); font-size:12px; }
+    .stat .v{ font-size:16px; font-weight:800; margin-top:4px; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>WGLT Quote Lightning: Memory Pro</h1>
+        <div class="sub">Fast Play • Tap-only • 4 Modes • Pan-African theme</div>
+      </div>
+      <div class="badge"><span class="dot"></span> Fast Play Bundle</div>
+    </header>
+
+    <div class="grid">
+      <!-- LEFT: Controls -->
+      <section class="card">
+        <div class="controls">
+          <div>
+            <label>Play Style</label>
+            <select id="playStyle">
+              <option value="choose">Choose Category</option>
+              <option value="random">Random Mix (Arcade)</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Category (only used when “Choose Category”)</label>
+            <select id="category">
+              <option value="Civil Rights">Civil Rights</option>
+              <option value="Inventors">Inventors</option>
+              <option value="Historians">Historians</option>
+              <option value="Entrepreneurs">Entrepreneurs</option>
+              <option value="Military">Military</option>
+              <option value="Artists">Artists & Entertainers</option>
+              <option value="Athletes">Athletes</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <div style="flex:1;min-width:180px;">
+              <label>Fast Play Set</label>
+              <select id="sessionSize">
+                <option value="8" selected>8 Rounds</option>
+                <option value="5">5 Rounds</option>
+                <option value="10">10 Rounds</option>
+              </select>
+            </div>
+            <div style="flex:1;min-width:180px;">
+              <label>Show Time</label>
+              <select id="showTime">
+                <option value="3" selected>3s (Memory Pro)</option>
+                <option value="4">4s</option>
+                <option value="5">5s</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <button id="startBtn">Start Fast Play ⚡</button>
+            <button id="resetBtn" class="btnGhost">Reset</button>
+          </div>
+
+          <div class="meta" id="metaLine">
+            <span>Mode rotation includes Visual Spark 🖼</span>
+            <span>Tap-only ordering & choices</span>
+          </div>
+
+          <div class="endBox" id="endBox">
+            <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;">
+              <div style="font-weight:800;">Session Results</div>
+              <button id="playAgainBtn" class="btnRed">Play Again</button>
+            </div>
+            <div class="endGrid" style="margin-top:10px;">
+              <div class="stat"><div class="k">Score</div><div class="v" id="statScore">0</div></div>
+              <div class="stat"><div class="k">Accuracy</div><div class="v" id="statAcc">0%</div></div>
+              <div class="stat"><div class="k">Streak</div><div class="v" id="statStreak">0</div></div>
+              <div class="stat"><div class="k">Fastest Round</div><div class="v" id="statFast">-</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: Play Area -->
+      <section class="card">
+        <div class="playHeader">
+          <div class="modePill"><span class="modeIcon" id="modeDot"></span> <span id="modeName">Ready</span></div>
+
+          <div class="hud">
+            <div class="hudBox">
+              <div class="k">Round</div>
+              <div class="v"><span id="roundNow">0</span>/<span id="roundTotal">0</span></div>
+            </div>
+            <div class="hudBox">
+              <div class="k">Score</div>
+              <div class="v" id="scoreNow">0</div>
+            </div>
+            <div class="hudBox">
+              <div class="k">Streak</div>
+              <div class="v" id="streakNow">0</div>
+            </div>
+
+            <div class="ring" id="timerRing" title="Round timer">
+              <div class="fill" id="ringFill" style="--deg:0deg;"></div>
+              <div class="center" id="ringCenter">--</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="quoteBox" id="quoteBox">Press “Start Fast Play ⚡” to begin.</div>
+          <div class="prompt" id="promptLine"></div>
+
+          <!-- WORD STORM UI -->
+          <div id="stormUI" style="display:none;">
+            <div class="prompt">Tap words in order to rebuild the quote.</div>
+            <div class="answerStrip" id="answerStrip"></div>
+            <div class="row" style="margin-top:10px;">
+              <button class="btnGhost" id="undoBtn">Undo</button>
+              <button class="btnGhost" id="clearBtn">Clear</button>
+              <button class="btnRed" id="submitStormBtn">Submit</button>
+            </div>
+            <div class="wordBank" id="wordBank"></div>
+          </div>
+
+          <!-- FLASH & FILL UI -->
+          <div id="fillUI" style="display:none;">
+            <div class="prompt">Tap choices to fill the blanks (no typing).</div>
+            <div class="fillGrid" id="fillGrid"></div>
+            <div class="row" style="margin-top:10px;">
+              <button class="btnRed" id="submitFillBtn">Submit</button>
+            </div>
+          </div>
+
+          <!-- VISUAL SPARK UI -->
+          <div id="visualUI" style="display:none;">
+            <div class="prompt">Tap the image that matches the quote’s meaning.</div>
+            <div class="visualGrid" id="visualGrid"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Correct Popup Modal -->
+  <div class="modalBackdrop" id="modalBackdrop" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modalTop">
+        <div class="modalTitle" id="modalTitle">Correct ⚡</div>
+        <button class="x" id="modalCloseBtn" aria-label="Close">✕</button>
+      </div>
+      <div class="modalBody">
+        <div id="modalMsg"></div>
+        <div class="speaker" id="modalSpeaker"></div>
+      </div>
+      <div class="modalActions">
+        <button id="nextBtn">Next Round</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =========================
+       DATA (add more anytime)
+       ========================= */
+    const QUOTES = [
+      {
+        id:"mlk-1",
+        category:"Civil Rights",
+        text:"Injustice anywhere is a threat to justice everywhere.",
+        speaker:"Martin Luther King Jr.",
+        context:"From 'Letter from Birmingham Jail' (1963).",
+        visual: {
+          correct: { label:"Justice", icon:"⚖️" },
+          wrong: [
+            { label:"Invention", icon:"💡" },
+            { label:"Sports", icon:"🏅" }
+          ]
+        }
+      },
+      {
+        id:"mandela-1",
+        category:"Civil Rights",
+        text:"Education is the most powerful weapon which you can use to change the world.",
+        speaker:"Nelson Mandela",
+        context:"Often quoted in education advocacy contexts.",
+        visual: {
+          correct: { label:"Education", icon:"🎓" },
+          wrong: [
+            { label:"Weather", icon:"🌧️" },
+            { label:"Music", icon:"🎶" }
+          ]
+        }
+      },
+      {
+        id:"wheatley-1",
+        category:"Artists",
+        text:"In every human breast, God has implanted a principle, which we call love of freedom.",
+        speaker:"Phillis Wheatley",
+        context:"Poet and the first published African American female author.",
+        visual: {
+          correct: { label:"Freedom", icon:"🕊️" },
+          wrong: [
+            { label:"Money", icon:"💵" },
+            { label:"Robots", icon:"🤖" }
+          ]
+        }
+      },
+      {
+        id:"carver-1",
+        category:"Inventors",
+        text:"It is not the style of clothes one wears, neither the kind of automobile one drives, nor the amount of money in the bank account. These mean nothing. It is simply service that measures success.",
+        speaker:"George Washington Carver",
+        context:"Scientist and educator known for agricultural innovations.",
+        visual: {
+          correct: { label:"Service", icon:"🤝" },
+          wrong: [
+            { label:"Luxury", icon:"🚗" },
+            { label:"Fame", icon:"📸" }
+          ]
+        }
+      },
+      {
+        id:"webdubois-1",
+        category:"Historians",
+        text:"Education must not simply teach work, it must teach life.",
+        speaker:"W.E.B. Du Bois",
+        context:"Scholar and co-founder of the NAACP.",
+        visual: {
+          correct: { label:"Learning", icon:"📚" },
+          wrong: [
+            { label:"Cooking", icon:"🍳" },
+            { label:"Space", icon:"🪐" }
+          ]
+        }
+      },
+      {
+        id:"madamcj-1",
+        category:"Entrepreneurs",
+        text:"I am a woman who came from the cotton fields of the South. From there I was promoted to the wash-tub. From there I was promoted to the kitchen. And from there I promoted myself into the business of manufacturing hair goods and preparations.",
+        speaker:"Madam C.J. Walker",
+        context:"First self-made female millionaire in the U.S. (commonly cited).",
+        visual: {
+          correct: { label:"Business", icon:"🏪" },
+          wrong: [
+            { label:"Ocean", icon:"🌊" },
+            { label:"Dinosaurs", icon:"🦖" }
+          ]
+        }
+      },
+      {
+        id:"jackierob-1",
+        category:"Athletes",
+        text:"A life is not important except in the impact it has on other lives.",
+        speaker:"Jackie Robinson",
+        context:"Baseball legend who broke MLB’s color barrier.",
+        visual: {
+          correct: { label:"Impact", icon:"🌍" },
+          wrong: [
+            { label:"Gadgets", icon:"📱" },
+            { label:"Dessert", icon:"🍨" }
+          ]
+        }
+      },
+      {
+        id:"powell-1",
+        category:"Military",
+        text:"There are no secrets to success. It is the result of preparation, hard work, and learning from failure.",
+        speaker:"Colin Powell",
+        context:"U.S. Army general and statesman.",
+        visual: {
+          correct: { label:"Preparation", icon:"🧭" },
+          wrong: [
+            { label:"Luck", icon:"🍀" },
+            { label:"Magic", icon:"🪄" }
+          ]
+        }
+      }
+    ];
+
+    /* =========================
+       MODE ROTATION (Fast Play)
+       1 Word Storm
+       2 Flash & Fill
+       3 Word Storm
+       4 Visual Spark
+       5 Flash & Fill
+       6 Word Storm
+       7 Visual Spark
+       8 Lightning Mix (random of 1/2/4)
+       ========================= */
+    const ROTATION = ["storm","fill","storm","visual","fill","storm","visual","mix"];
+
+    const els = {
+      playStyle: document.getElementById("playStyle"),
+      category: document.getElementById("category"),
+      sessionSize: document.getElementById("sessionSize"),
+      showTime: document.getElementById("showTime"),
+      startBtn: document.getElementById("startBtn"),
+      resetBtn: document.getElementById("resetBtn"),
+      playAgainBtn: document.getElementById("playAgainBtn"),
+
+      modeName: document.getElementById("modeName"),
+      modeDot: document.getElementById("modeDot"),
+      roundNow: document.getElementById("roundNow"),
+      roundTotal: document.getElementById("roundTotal"),
+      scoreNow: document.getElementById("scoreNow"),
+      streakNow: document.getElementById("streakNow"),
+
+      quoteBox: document.getElementById("quoteBox"),
+      promptLine: document.getElementById("promptLine"),
+
+      timerRing: document.getElementById("timerRing"),
+      ringFill: document.getElementById("ringFill"),
+      ringCenter: document.getElementById("ringCenter"),
+
+      stormUI: document.getElementById("stormUI"),
+      answerStrip: document.getElementById("answerStrip"),
+      wordBank: document.getElementById("wordBank"),
+      undoBtn: document.getElementById("undoBtn"),
+      clearBtn: document.getElementById("clearBtn"),
+      submitStormBtn: document.getElementById("submitStormBtn"),
+
+      fillUI: document.getElementById("fillUI"),
+      fillGrid: document.getElementById("fillGrid"),
+      submitFillBtn: document.getElementById("submitFillBtn"),
+
+      visualUI: document.getElementById("visualUI"),
+      visualGrid: document.getElementById("visualGrid"),
+
+      modalBackdrop: document.getElementById("modalBackdrop"),
+      modalCloseBtn: document.getElementById("modalCloseBtn"),
+      nextBtn: document.getElementById("nextBtn"),
+      modalTitle: document.getElementById("modalTitle"),
+      modalMsg: document.getElementById("modalMsg"),
+      modalSpeaker: document.getElementById("modalSpeaker"),
+
+      endBox: document.getElementById("endBox"),
+      statScore: document.getElementById("statScore"),
+      statAcc: document.getElementById("statAcc"),
+      statStreak: document.getElementById("statStreak"),
+      statFast: document.getElementById("statFast")
+    };
+
+    const state = {
+      running:false,
+      roundIndex:0,
+      totalRounds:8,
+      showSeconds:3,
+
+      score:0,
+      streak:0,
+      fastestMs:null,
+      correctCount:0,
+      attemptCount:0,
+
+      currentMode:"storm",
+      currentQuote:null,
+
+      // timers
+      showTimer:null,
+      roundTimer:null,
+      roundStartMs:0,
+      roundSeconds:22, // per round solve time
+      remaining:0,
+
+      // storm
+      tokens:[],
+      picked:[], // indices
+
+      // fill
+      fillBlanks:[],
+
+      // rotation
+      rotation:[...ROTATION],
+    };
+
+    function shuffle(arr){
+      const a = arr.slice();
+      for(let i=a.length-1;i>0;i--){
+        const j = Math.floor(Math.random()*(i+1));
+        [a[i],a[j]] = [a[j],a[i]];
+      }
+      return a;
+    }
+
+    function normTokenize(text){
+      // split by spaces, preserve punctuation attached to word
+      return text.split(/\s+/).filter(Boolean);
+    }
+
+    function setModeUI(mode){
+      els.stormUI.style.display = (mode==="storm") ? "block" : "none";
+      els.fillUI.style.display = (mode==="fill") ? "block" : "none";
+      els.visualUI.style.display = (mode==="visual") ? "block" : "none";
+
+      const nameMap = {
+        storm:"Word Storm",
+        fill:"Flash & Fill",
+        visual:"Visual Spark",
+        mix:"Lightning Mix"
+      };
+      els.modeName.textContent = nameMap[mode] || "Ready";
+
+      // dot color vibe
+      if(mode==="visual"){
+        els.modeDot.style.background = "var(--gold)";
+        els.modeDot.style.boxShadow = "0 0 0 4px rgba(242,193,78,.16)";
+      }else if(mode==="fill"){
+        els.modeDot.style.background = "var(--green)";
+        els.modeDot.style.boxShadow = "0 0 0 4px rgba(42,157,63,.16)";
+      }else{
+        els.modeDot.style.background = "var(--green)";
+        els.modeDot.style.boxShadow = "0 0 0 4px rgba(42,157,63,.16)";
+      }
+    }
+
+    function updateHUD(){
+      els.roundNow.textContent = state.running ? (state.roundIndex+1) : 0;
+      els.roundTotal.textContent = state.totalRounds;
+      els.scoreNow.textContent = state.score;
+      els.streakNow.textContent = state.streak;
+    }
+
+    function setQuoteBox(text){
+      els.quoteBox.textContent = text;
+    }
+
+    function resetTimerRing(){
+      els.timerRing.classList.remove("danger");
+      els.ringCenter.textContent = "--";
+      els.ringFill.style.setProperty("--deg", "0deg");
+    }
+
+    function startSolveTimer(seconds){
+      clearInterval(state.roundTimer);
+      state.roundSeconds = seconds;
+      state.remaining = seconds;
+      state.roundStartMs = Date.now();
+      resetTimerRing();
+      tickRing();
+
+      state.roundTimer = setInterval(()=>{
+        state.remaining--;
+        tickRing();
+        if(state.remaining <= 0){
+          clearInterval(state.roundTimer);
+          handleIncorrect("Time’s up. ⚡");
+        }
+      }, 1000);
+    }
+
+    function tickRing(){
+      const total = state.roundSeconds;
+      const rem = Math.max(0, state.remaining);
+      const pct = total ? (rem/total) : 0;
+      const deg = Math.round(360*pct);
+      els.ringFill.style.setProperty("--deg", deg + "deg");
+      els.ringCenter.textContent = rem + "s";
+      if(rem <= 3){
+        els.timerRing.classList.add("danger");
+      }else{
+        els.timerRing.classList.remove("danger");
+      }
+    }
+
+    function pickQuote(){
+      const style = els.playStyle.value;
+      const cat = els.category.value;
+
+      let pool = QUOTES;
+      if(style === "choose"){
+        pool = QUOTES.filter(q=>q.category === cat);
+        if(pool.length === 0) pool = QUOTES;
+      }
+      return pool[Math.floor(Math.random()*pool.length)];
+    }
+
+    function getRotationMode(idx){
+      // use ROTATION but support session sizes other than 8
+      const base = state.rotation;
+      if(idx < base.length) return base[idx];
+      // beyond base, randomize
+      const opts = ["storm","fill","visual","mix"];
+      return opts[Math.floor(Math.random()*opts.length)];
+    }
+
+    function resolveMixMode(){
+      const opts = ["storm","fill","visual"];
+      return opts[Math.floor(Math.random()*opts.length)];
+    }
+
+    function beginRound(){
+      state.currentQuote = pickQuote();
+      let mode = getRotationMode(state.roundIndex);
+      if(mode === "mix") mode = resolveMixMode();
+      state.currentMode = mode;
+
+      setModeUI(mode);
+      updateHUD();
+
+      // clear UIs
+      els.promptLine.textContent = "";
+      resetTimerRing();
+      clearStormState();
+      clearFillState();
+      clearVisualState();
+
+      // show quote briefly
+      const showS = state.showSeconds;
+      setQuoteBox(state.currentQuote.text);
+
+      // after show time, hide & start challenge
+      clearTimeout(state.showTimer);
+      state.showTimer = setTimeout(()=>{
+        setQuoteBox("⚡ Go!");
+        if(mode === "storm") setupStorm();
+        if(mode === "fill") setupFill();
+        if(mode === "visual") setupVisual();
+        // solve time depends on mode/length
+        const tokenCount = normTokenize(state.currentQuote.text).length;
+        const base = (mode==="visual") ? 10 : (mode==="fill" ? 16 : 22);
+        const extra = Math.min(10, Math.floor(tokenCount/6));
+        startSolveTimer(base + extra);
+      }, showS * 1000);
+    }
+
+    /* ========= Word Storm ========= */
+    function clearStormState(){
+      state.tokens = [];
+      state.picked = [];
+      els.answerStrip.innerHTML = "";
+      els.wordBank.innerHTML = "";
+    }
+
+    function setupStorm(){
+      const tokens = normTokenize(state.currentQuote.text);
+      state.tokens = tokens;
+      const bank = shuffle(tokens.map((t,i)=>({t,i})));
+
+      renderAnswerStrip();
+      renderWordBank(bank);
+      els.promptLine.textContent = "Rebuild the quote by tapping words in order.";
+    }
+
+    function renderAnswerStrip(){
+      els.answerStrip.innerHTML = "";
+      state.picked.forEach(idx=>{
+        const t = state.tokens[idx];
+        const chip = document.createElement("div");
+        chip.className = "chip";
+        chip.textContent = t;
+        chip.title = "Tap to remove";
+        chip.onclick = ()=> removePicked(idx);
+        els.answerStrip.appendChild(chip);
+      });
+    }
+
+    function renderWordBank(bank){
+      els.wordBank.innerHTML = "";
+      bank.forEach(item=>{
+        const btn = document.createElement("div");
+        btn.className = "wordBtn";
+        btn.textContent = item.t;
+        btn.dataset.idx = item.i;
+        btn.onclick = ()=>{
+          if(btn.classList.contains("used")) return;
+          state.picked.push(item.i);
+          btn.classList.add("used");
+          renderAnswerStrip();
+        };
+        els.wordBank.appendChild(btn);
+      });
+    }
+
+    function removePicked(idx){
+      // remove last instance of idx
+      const pos = state.picked.lastIndexOf(idx);
+      if(pos === -1) return;
+      state.picked.splice(pos,1);
+
+      // un-use one matching button
+      const btns = els.wordBank.querySelectorAll(".wordBtn.used");
+      for(const b of btns){
+        if(parseInt(b.dataset.idx,10) === idx){
+          b.classList.remove("used");
+          break;
+        }
+      }
+      renderAnswerStrip();
+    }
+
+    function undoStorm(){
+      if(state.picked.length === 0) return;
+      const idx = state.picked[state.picked.length-1];
+      removePicked(idx);
+    }
+
+    function clearStorm(){
+      state.picked = [];
+      const btns = els.wordBank.querySelectorAll(".wordBtn.used");
+      btns.forEach(b=>b.classList.remove("used"));
+      renderAnswerStrip();
+    }
+
+    function submitStorm(){
+      const attempt = state.picked.map(i=>state.tokens[i]).join(" ").trim();
+      const correct = state.currentQuote.text.trim();
+      gradeAttempt(attempt, correct);
+    }
+
+    /* ========= Flash & Fill ========= */
+    function clearFillState(){
+      state.fillBlanks = [];
+      els.fillGrid.innerHTML = "";
+    }
+
+    function setupFill(){
+      const tokens = normTokenize(state.currentQuote.text);
+      // choose 2 blanks for short, 3 for longer
+      const blankCount = tokens.length >= 16 ? 3 : 2;
+
+      // pick indices avoiding very short words
+      const candidates = tokens
+        .map((t,i)=>({t,i}))
+        .filter(x => x.t.replace(/[^\w]/g,"").length >= 4);
+
+      const picks = shuffle(candidates).slice(0, Math.min(blankCount, candidates.length)).map(x=>x.i);
+      picks.sort((a,b)=>a-b);
+
+      // build display with blanks
+      const displayTokens = tokens.slice();
+      const blanks = picks.map(i=>{
+        const answer = tokens[i];
+        displayTokens[i] = "__BLANK__";
+        return { idx:i, answer, choice:null, options: buildOptions(answer, tokens) };
+      });
+      state.fillBlanks = blanks;
+
+      // render
+      els.fillGrid.innerHTML = "";
+      const line = document.createElement("div");
+      line.className = "fillLine";
+
+      const text = document.createElement("div");
+      text.className = "fillText";
+      text.innerHTML = displayTokens.map(t=>{
+        if(t==="__BLANK__") return `<span class="blank">____</span>`;
+        return escapeHtml(t);
+      }).join(" ");
+      line.appendChild(text);
+
+      blanks.forEach((b,bi)=>{
+        const row = document.createElement("div");
+        row.className = "choiceRow";
+        b.options.forEach(opt=>{
+          const btn = document.createElement("div");
+          btn.className = "choiceBtn";
+          btn.textContent = opt;
+          btn.onclick = ()=>{
+            // mark choice
+            b.choice = opt;
+            // update visuals
+            row.querySelectorAll(".choiceBtn").forEach(x=>x.classList.remove("pick"));
+            btn.classList.add("pick");
+            // update blank display text with picks
+            refreshFillText(displayTokens, blanks);
+          };
+          row.appendChild(btn);
+        });
+        line.appendChild(row);
+      });
+
+      els.fillGrid.appendChild(line);
+      els.promptLine.textContent = "Fill the blanks by tapping choices.";
+    }
+
+    function refreshFillText(displayTokens, blanks){
+      const tokens = normTokenize(state.currentQuote.text);
+      const arr = displayTokens.slice();
+      blanks.forEach(b=>{
+        const text = b.choice ? b.choice : "____";
+        arr[b.idx] = `<span class="blank">${escapeHtml(text)}</span>`;
+      });
+      // rebuild HTML
+      const fillText = els.fillGrid.querySelector(".fillText");
+      fillText.innerHTML = arr.map(t=>{
+        if(typeof t === "string" && t.startsWith("<span")) return t;
+        if(t==="__BLANK__") return `<span class="blank">____</span>`;
+        return escapeHtml(t);
+      }).join(" ");
+    }
+
+    function buildOptions(answer, tokens){
+      const clean = (s)=> s.replace(/[^\w]/g,"").toLowerCase();
+      const a = answer;
+      const pool = tokens
+        .map(t=>t)
+        .filter(t => clean(t).length >= 4 && clean(t)!==clean(a));
+
+      const wrongs = shuffle(pool).slice(0,2);
+      const opts = shuffle([a, ...wrongs]);
+      return opts;
+    }
+
+    function submitFill(){
+      // if any blank not chosen => incorrect
+      if(state.fillBlanks.some(b=>!b.choice)){
+        handleIncorrect("Pick a choice for each blank.");
+        return;
+      }
+      const tokens = normTokenize(state.currentQuote.text);
+      state.fillBlanks.forEach(b=>{
+        tokens[b.idx] = b.choice;
+      });
+      const attempt = tokens.join(" ").trim();
+      gradeAttempt(attempt, state.currentQuote.text.trim());
+    }
+
+    /* ========= Visual Spark ========= */
+    function clearVisualState(){
+      els.visualGrid.innerHTML = "";
+    }
+
+    function setupVisual(){
+      const q = state.currentQuote;
+      const correct = q.visual.correct;
+      const wrong = q.visual.wrong;
+
+      const cards = shuffle([correct, ...wrong]).slice(0,3);
+
+      els.visualGrid.innerHTML = "";
+      cards.forEach(c=>{
+        const card = document.createElement("div");
+        card.className = "vCard";
+        card.innerHTML = `
+          <div class="vIcon">${c.icon || "🖼️"}</div>
+          <div class="vLabel">${escapeHtml(c.label || "")}</div>
+        `;
+        card.onclick = ()=>{
+          // grade instantly
+          const isCorrect = (c.label === correct.label && c.icon === correct.icon);
+          if(isCorrect){
+            handleCorrect("Nailed it. You matched the meaning.", true);
+          }else{
+            handleIncorrect("Not quite. That image didn’t match the quote’s meaning.");
+          }
+        };
+        els.visualGrid.appendChild(card);
+      });
+
+      els.promptLine.textContent = "Choose the best meaning match.";
+    }
+
+    /* ========= Grading & Scoring ========= */
+    function gradeAttempt(attempt, correct){
+      // compare tokens (strict order)
+      const a = normTokenize(attempt);
+      const c = normTokenize(correct);
+
+      let matches = 0;
+      const len = Math.max(a.length, c.length);
+      for(let i=0;i<len;i++){
+        if(a[i] === c[i]) matches++;
+      }
+      const accuracy = len ? (matches/len) : 0;
+
+      // require strong correctness for Memory Pro
+      const pass = accuracy >= 0.92 && a.length === c.length;
+
+      if(pass){
+        handleCorrect(`Perfect rebuild. Accuracy ${(accuracy*100).toFixed(0)}%.`, false);
+      }else{
+        handleIncorrect(`Close, but not exact. Accuracy ${(accuracy*100).toFixed(0)}%.`);
+      }
+    }
+
+    function handleCorrect(msg, visualInstant){
+      clearInterval(state.roundTimer);
+
+      const elapsedMs = Date.now() - state.roundStartMs;
+      state.fastestMs = (state.fastestMs===null) ? elapsedMs : Math.min(state.fastestMs, elapsedMs);
+
+      state.correctCount++;
+      state.attemptCount++;
+
+      state.streak++;
+      // scoring: base + speed bonus + streak bonus
+      const speedBonus = Math.max(0, Math.round((state.roundSeconds*1000 - elapsedMs)/120));
+      const base = 300;
+      const streakBonus = Math.min(250, state.streak * 25);
+      state.score += (base + speedBonus + streakBonus);
+
+      updateHUD();
+
+      // popup with speaker
+      openModal(true, msg);
+    }
+
+    function handleIncorrect(msg){
+      clearInterval(state.roundTimer);
+      state.attemptCount++;
+      state.streak = 0;
+      updateHUD();
+      openModal(false, msg);
+    }
+
+    function openModal(isCorrect, msg){
+      els.modalTitle.textContent = isCorrect ? "Correct ⚡" : "Try Again ⚡";
+      els.modalMsg.textContent = msg;
+
+      // Speaker popup (your request)
+      const q = state.currentQuote;
+      els.modalSpeaker.innerHTML = `
+        <div><b>Who said it:</b> ${escapeHtml(q.speaker)}</div>
+        <div style="margin-top:6px;color:var(--muted);font-size:12px;">${escapeHtml(q.context || "")}</div>
+      `;
+
+      els.modalBackdrop.style.display = "flex";
+    }
+
+    function closeModal(){
+      els.modalBackdrop.style.display = "none";
+    }
+
+    function nextRound(){
+      closeModal();
+
+      // move forward
+      state.roundIndex++;
+      if(state.roundIndex >= state.totalRounds){
+        endSession();
+        return;
+      }
+      beginRound();
+    }
+
+    function endSession(){
+      state.running = false;
+      setQuoteBox("Session Complete ✅");
+      els.promptLine.textContent = "Check your results on the left.";
+      setModeUI("mix");
+      resetTimerRing();
+
+      // results
+      const acc = state.attemptCount ? Math.round((state.correctCount/state.attemptCount)*100) : 0;
+      els.statScore.textContent = state.score;
+      els.statAcc.textContent = acc + "%";
+      els.statStreak.textContent = state.correctCount ? state.correctCount : 0;
+
+      if(state.fastestMs !== null){
+        els.statFast.textContent = (state.fastestMs/1000).toFixed(1) + "s";
+      }else{
+        els.statFast.textContent = "-";
+      }
+
+      els.endBox.style.display = "block";
+      updateHUD();
+    }
+
+    function resetAll(){
+      state.running = false;
+      clearTimeout(state.showTimer);
+      clearInterval(state.roundTimer);
+
+      state.roundIndex = 0;
+      state.totalRounds = parseInt(els.sessionSize.value,10);
+      state.showSeconds = parseInt(els.showTime.value,10);
+
+      state.score = 0;
+      state.streak = 0;
+      state.fastestMs = null;
+      state.correctCount = 0;
+      state.attemptCount = 0;
+
+      state.currentMode = "storm";
+      state.currentQuote = null;
+
+      state.rotation = [...ROTATION];
+
+      setModeUI("mix");
+      updateHUD();
+      resetTimerRing();
+
+      els.endBox.style.display = "none";
+      clearStormState(); clearFillState(); clearVisualState();
+      setQuoteBox("Press “Start Fast Play ⚡” to begin.");
+      els.promptLine.textContent = "";
+    }
+
+    /* ========= Utilities ========= */
+    function escapeHtml(s){
+      return String(s)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    /* ========= Events ========= */
+    els.startBtn.onclick = ()=>{
+      resetAll();
+      state.running = true;
+      state.totalRounds = parseInt(els.sessionSize.value,10);
+      state.showSeconds = parseInt(els.showTime.value,10);
+      els.endBox.style.display = "none";
+      beginRound();
+    };
+
+    els.resetBtn.onclick = resetAll;
+    els.playAgainBtn.onclick = ()=> els.startBtn.click();
+
+    els.undoBtn.onclick = undoStorm;
+    els.clearBtn.onclick = clearStorm;
+    els.submitStormBtn.onclick = submitStorm;
+
+    els.submitFillBtn.onclick = submitFill;
+
+    els.modalCloseBtn.onclick = closeModal;
+    els.nextBtn.onclick = nextRound;
+
+    // close modal by clicking backdrop
+    els.modalBackdrop.onclick = (e)=>{
+      if(e.target === els.modalBackdrop) closeModal();
+    };
+
+    // initial
+    resetAll();
+  </script>
+</body>
+</html>
