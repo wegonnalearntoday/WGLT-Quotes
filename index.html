@@ -48,6 +48,10 @@
       min-height:100vh;
     }
 
+    body.modal-open{
+      overflow:hidden;
+    }
+
     .wrap{
       max-width:1100px;
       margin:0 auto;
@@ -56,20 +60,27 @@
 
     header{
       display:flex;
+      flex-direction:column;
       gap:12px;
-      align-items:flex-start;
-      justify-content:space-between;
+      align-items:center;
+      justify-content:center;
       flex-wrap:wrap;
       margin-bottom:12px;
+      text-align:center;
     }
 
     .title{
       display:flex;
       flex-direction:column;
       gap:4px;
+      align-items:center;
+      width:100%;
+      text-align:center;
     }
     .title h1{
       margin:0;
+      width:100%;
+      text-align:center;
       font-size:23px;
       letter-spacing:1.2px;
       font-family: Georgia, 'Times New Roman', serif;
@@ -454,6 +465,9 @@
       background:rgba(0,0,0,.62);
       padding:18px;
       z-index:50;
+      overflow:auto;
+      overscroll-behavior:contain;
+      -webkit-overflow-scrolling:touch;
     }
     .modal{
       width:min(520px, 100%);
@@ -1214,7 +1228,7 @@
       {
             "id": "lawrence-1",
             "category": "The Arts",
-            "text": "When the subject is strong, simplicity is the only way to treat it.",
+            "text": "When the subject is strong, simplicity is the only way to treat it.,
             "speaker": "Jacob Lawrence",
             "context": "A quote tied to Jacob Lawrence’s art and storytelling.",
             "visual": {
@@ -1283,7 +1297,7 @@
       {
             "id": "basquiat-1",
             "category": "The Arts",
-            "text": "I am not a black artist, I am an artist. The more I paint, the more I like everything.",
+            "text": "I am not a black artist, I am an artist" and "The more I paint the more I like everything.",
             "speaker": "Jean Michel Basquiat",
             "context": "A famous quote about how artists gather inspiration.",
             "visual": {
@@ -2442,6 +2456,13 @@
       }
     }
 
+    function centerGameAreaForModal(){
+      const target = document.querySelector('.playCard') || document.querySelector('.grid') || document.querySelector('.wrap');
+      if(!target) return;
+      const y = Math.max(0, window.scrollY + target.getBoundingClientRect().top - 14);
+      window.scrollTo({ top:y, behavior:'smooth' });
+    }
+
     function openModal(isCorrect, msg){
       const outOfStrikes = !isCorrect && state.strikes >= state.maxStrikes;
       els.modalTitle.textContent = isCorrect ? "Correct ⚡" : (outOfStrikes ? "Out of Strikes" : "Try Again ⚡");
@@ -2460,11 +2481,16 @@
       }
 
       els.nextBtn.textContent = isCorrect ? "Next Round" : (outOfStrikes ? "See Results" : "Try Again");
-      els.modalBackdrop.style.display = "flex";
+      centerGameAreaForModal();
+      document.body.classList.add('modal-open');
+      requestAnimationFrame(()=>{
+        els.modalBackdrop.style.display = "flex";
+      });
     }
 
     function closeModal(){
       els.modalBackdrop.style.display = "none";
+      document.body.classList.remove('modal-open');
     }
 
     function nextRound(){
