@@ -5,37 +5,46 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>WGLT Quote Lightning: Memory Pro (Fast Play)</title>
   <style>
-    :root{
-      --bg:#0b0c10;
-      --panel:#10131a;
-      --panel2:#0f1116;
-      --text:#f2f4ff;
-      --muted:#b8bfd6;
+     :root{
+      --bg:#07090d;
+      --bg2:#0c1218;
+      --panel:#101821;
+      --panel2:#14222b;
+      --text:#f4e6c3;
+      --muted:#c8b894;
 
-      /* Pan-African */
-      --red:#d62828;
-      --green:#2a9d3f;
-      --gold:#f2c14e;
+      /* Poster-inspired palette */
+      --ink:#08131a;
+      --teal:#1f7f8f;
+      --teal2:#2b9aad;
+      --gold:#e8c06b;
+      --gold2:#f2d48f;
+      --copper:#c78337;
+      --orange:#dd8a3c;
+      --cream:#f7ebcf;
+      --red:#b84d2e;
+      --green:#4f8d69;
 
-      --outline:rgba(255,255,255,.09);
-      --shadow:0 16px 40px rgba(0,0,0,.45);
+      --outline:rgba(242,212,143,.18);
+      --shadow:0 18px 44px rgba(0,0,0,.48);
       --radius:18px;
 
-      --btn:#171b26;
-      --btn2:#1c2130;
+      --btn:#1a232d;
+      --btn2:#202b36;
 
-      --danger:#ff4d4d;
+      --danger:#d76848;
+      --success:#62aa80;
     }
 
     *{ box-sizing:border-box; }
     body{
       margin:0;
-      background: radial-gradient(900px 500px at 20% 0%, rgba(214,40,40,.18), transparent 60%),
-                  radial-gradient(900px 500px at 80% 0%, rgba(42,157,63,.14), transparent 60%),
-                  radial-gradient(900px 600px at 50% 110%, rgba(242,193,78,.13), transparent 60%),
-                  var(--bg);
+      background: radial-gradient(900px 500px at 18% 0%, rgba(221,138,60,.17), transparent 60%),
+                  radial-gradient(900px 500px at 82% 0%, rgba(43,154,173,.16), transparent 58%),
+                  radial-gradient(900px 700px at 50% 115%, rgba(232,192,107,.11), transparent 62%),
+                  linear-gradient(180deg, var(--bg), var(--bg2));
       color:var(--text);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
       min-height:100vh;
     }
 
@@ -61,29 +70,35 @@
     }
     .title h1{
       margin:0;
-      font-size:18px;
-      letter-spacing:.2px;
+      font-size:23px;
+      letter-spacing:1.2px;
+      font-family: Georgia, 'Times New Roman', serif;
+      text-transform:uppercase;
+      color:var(--cream);
+      text-shadow:0 2px 0 rgba(0,0,0,.35), 0 0 24px rgba(232,192,107,.12);
     }
     .title .sub{
       color:var(--muted);
       font-size:13px;
-      line-height:1.2;
+      line-height:1.25;
+      letter-spacing:.4px;
     }
 
     .badge{
       display:inline-flex;
       gap:8px;
       align-items:center;
-      padding:8px 10px;
-      border:1px solid var(--outline);
+      padding:9px 12px;
+      border:1px solid rgba(232,192,107,.26);
       border-radius:999px;
-      background:rgba(255,255,255,.03);
+      background:linear-gradient(180deg, rgba(31,127,143,.16), rgba(221,138,60,.08));
       font-size:12px;
-      color:var(--muted);
+      color:var(--cream);
       user-select:none;
       white-space:nowrap;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.03);
     }
-    .dot{ width:8px;height:8px;border-radius:50%; background:var(--gold); box-shadow:0 0 0 4px rgba(242,193,78,.18); }
+    .dot{ width:8px;height:8px;border-radius:50%; background:var(--gold); box-shadow:0 0 0 4px rgba(232,192,107,.16); }
 
     .grid{
       display:grid;
@@ -95,7 +110,7 @@
     }
 
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      background:linear-gradient(180deg, rgba(20,34,43,.90), rgba(10,14,19,.94));
       border:1px solid var(--outline);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -126,7 +141,7 @@
     select, button{
       border-radius:12px;
       border:1px solid var(--outline);
-      background:rgba(0,0,0,.22);
+      background:rgba(8,14,20,.72);
       color:var(--text);
       padding:10px 12px;
       font-size:14px;
@@ -134,7 +149,7 @@
     }
     select{ width:100%; }
     button{
-      background:linear-gradient(180deg, rgba(242,193,78,.18), rgba(255,255,255,.03));
+      background:linear-gradient(180deg, rgba(232,192,107,.30), rgba(199,131,55,.15));
       cursor:pointer;
       transition: transform .06s ease, filter .2s ease;
       user-select:none;
@@ -143,10 +158,10 @@
     button:active{ transform:scale(.99); }
 
     .btnGhost{
-      background:rgba(255,255,255,.04);
+      background:rgba(247,235,207,.05);
     }
     .btnRed{
-      background:linear-gradient(180deg, rgba(214,40,40,.25), rgba(255,255,255,.03));
+      background:linear-gradient(180deg, rgba(184,77,46,.35), rgba(199,131,55,.12));
     }
 
     .meta{
@@ -174,10 +189,11 @@
       padding:8px 10px;
       border-radius:999px;
       border:1px solid var(--outline);
-      background:rgba(0,0,0,.18);
+      background:linear-gradient(180deg, rgba(31,127,143,.15), rgba(0,0,0,.18));
       font-size:12px;
-      color:var(--muted);
+      color:var(--cream);
       user-select:none;
+      letter-spacing:.4px;
     }
     .modeIcon{
       width:8px;height:8px;border-radius:50%;
@@ -200,17 +216,38 @@
       padding:8px 10px;
       border:1px solid var(--outline);
       border-radius:12px;
-      background:rgba(255,255,255,.03);
+      background:rgba(247,235,207,.05);
       min-width:92px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
     }
     .hudBox .k{ font-size:11px; color:var(--muted); }
-    .hudBox .v{ font-size:14px; font-weight:650; }
+    .hudBox .v{ font-size:15px; font-weight:800; color:var(--cream); }
+
+    .strikeWrap{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      flex-wrap:wrap;
+    }
+    .strikeDot{
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      border:1px solid rgba(232,192,107,.35);
+      background:rgba(247,235,207,.08);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
+    }
+    .strikeDot.used{
+      background:linear-gradient(180deg, var(--red), var(--copper));
+      border-color:rgba(221,138,60,.55);
+      box-shadow:0 0 12px rgba(221,138,60,.22);
+    }
 
     /* Timer ring */
     .ring{
       width:44px;height:44px;
       border-radius:50%;
-      border:3px solid rgba(242,193,78,.25);
+      border:3px solid rgba(232,192,107,.28);
       position:relative;
       overflow:hidden;
     }
@@ -221,7 +258,7 @@
     }
     .ring > .center{
       position:absolute; inset:6px;
-      background:rgba(0,0,0,.35);
+      background:rgba(7,9,13,.82);
       border-radius:50%;
       display:flex; align-items:center; justify-content:center;
       font-size:12px; color:var(--text);
@@ -238,17 +275,17 @@
     }
 
     .quoteBox{
-      border:1px dashed rgba(255,255,255,.16);
+      border:1px dashed rgba(232,192,107,.28);
       border-radius:14px;
       padding:12px;
-      background:rgba(0,0,0,.18);
+      background:linear-gradient(180deg, rgba(12,18,24,.88), rgba(8,12,17,.78));
       min-height:76px;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
       line-height:1.35;
-      font-size:16px;
+      font-size:17px;
     }
     @media (max-width: 520px){
       .quoteBox{ font-size:15px; }
@@ -267,7 +304,7 @@
       gap:8px;
       padding:10px;
       border-radius:14px;
-      background:rgba(255,255,255,.04);
+      background:rgba(247,235,207,.05);
       border:1px solid var(--outline);
       min-height:54px;
       align-content:flex-start;
@@ -279,7 +316,7 @@
       padding:8px 10px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.22);
+      background:rgba(8,14,20,.72);
       font-size:14px;
       max-width:100%;
       user-select:none;
@@ -295,7 +332,7 @@
       gap:10px;
       padding:10px;
       border-radius:14px;
-      background:rgba(0,0,0,.20);
+      background:rgba(8,14,20,.76);
       border:1px solid var(--outline);
       max-height:260px;
       overflow:auto; /* safe on small screens */
@@ -306,7 +343,7 @@
       padding:10px 12px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
+      background:rgba(247,235,207,.05);
       cursor:pointer;
       user-select:none;
       font-size:14px;
@@ -333,7 +370,7 @@
       padding:10px;
       border:1px solid var(--outline);
       border-radius:14px;
-      background:rgba(255,255,255,.03);
+      background:rgba(247,235,207,.05);
     }
     .fillText{
       font-size:15px;
@@ -348,7 +385,7 @@
       padding:2px 10px;
       border-radius:999px;
       border:1px dashed rgba(242,193,78,.40);
-      background:rgba(242,193,78,.10);
+      background:rgba(232,192,107,.12);
       min-width:68px;
       font-weight:700;
     }
@@ -361,7 +398,7 @@
       padding:8px 10px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.22);
+      background:rgba(8,14,20,.72);
       cursor:pointer;
       user-select:none;
       font-size:13px;
@@ -383,7 +420,7 @@
     .vCard{
       border-radius:16px;
       border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
+      background:rgba(247,235,207,.05);
       padding:12px;
       cursor:pointer;
       user-select:none;
@@ -422,7 +459,7 @@
       width:min(520px, 100%);
       border-radius:18px;
       border:1px solid rgba(255,255,255,.16);
-      background:linear-gradient(180deg, rgba(16,19,26,.96), rgba(10,12,16,.96));
+      background:linear-gradient(180deg, rgba(20,34,43,.98), rgba(8,12,17,.98));
       box-shadow:0 20px 60px rgba(0,0,0,.55);
       padding:14px;
     }
@@ -441,7 +478,7 @@
     .x{
       width:34px;height:34px;border-radius:12px;
       border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.04);
+      background:rgba(247,235,207,.05);
       color:var(--text);
       cursor:pointer;
     }
@@ -474,7 +511,7 @@
       padding:12px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.22);
+      background:rgba(8,14,20,.72);
     }
     .endGrid{
       display:grid;
@@ -488,10 +525,146 @@
       padding:10px;
       border-radius:14px;
       border:1px solid var(--outline);
-      background:rgba(255,255,255,.03);
+      background:rgba(247,235,207,.05);
     }
     .stat .k{ color:var(--muted); font-size:12px; }
     .stat .v{ font-size:16px; font-weight:800; margin-top:4px; }
+  
+
+    /* Phone fit upgrades */
+    html, body{ max-width:100%; overflow-x:hidden; }
+    .quoteBox, .fillText, .vLabel, .prompt, .title h1, .title .sub, .hudBox .v, .hudBox .k, .modePill, .badge{
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
+
+    @media (max-width: 700px){
+      .wrap{
+        padding:12px 10px 18px;
+      }
+      header{
+        gap:10px;
+        align-items:stretch;
+      }
+      .title h1{
+        font-size:19px;
+        line-height:1.08;
+      }
+      .title .sub{
+        font-size:12px;
+      }
+      .badge{
+        width:100%;
+        justify-content:center;
+      }
+      .card{
+        padding:12px;
+      }
+      .row{
+        gap:8px;
+      }
+      .row > *{
+        flex:1 1 100% !important;
+        min-width:0 !important;
+      }
+      .row button{
+        width:100%;
+      }
+      .playHeader{
+        flex-direction:column;
+        align-items:stretch;
+      }
+      .hud{
+        width:100%;
+        justify-content:stretch;
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:8px;
+      }
+      .hudBox{
+        min-width:0;
+        width:100%;
+      }
+      .ring{
+        width:52px;
+        height:52px;
+        justify-self:end;
+        align-self:start;
+      }
+      .ring > .center{
+        font-size:12px;
+      }
+      select, button{
+        font-size:16px;
+      }
+      .quoteBox{
+        min-height:84px;
+        font-size:15px;
+        padding:12px 10px;
+      }
+      .answerStrip, .wordBank, .fillLine, .vCard, .endBox{
+        padding:10px;
+      }
+      .wordBank{
+        max-height:220px;
+      }
+      .wordBtn, .chip, .choiceBtn{
+        font-size:13px;
+      }
+      .modalBackdrop{
+        padding:10px;
+      }
+      .modal{
+        max-height:calc(100vh - 20px);
+        overflow:auto;
+        padding:12px;
+      }
+    }
+
+    @media (max-width: 420px){
+      .wrap{
+        padding:10px 8px 16px;
+      }
+      .title h1{
+        font-size:17px;
+      }
+      .hud{
+        grid-template-columns:1fr 1fr;
+      }
+      .hudBox{
+        padding:7px 8px;
+      }
+      .hudBox .v{
+        font-size:14px;
+      }
+      .strikeDot{
+        width:12px;
+        height:12px;
+      }
+      .modePill{
+        justify-content:center;
+        width:100%;
+      }
+      .quoteBox{
+        font-size:14px;
+      }
+      .prompt{
+        font-size:12px;
+      }
+      .visualGrid{
+        grid-template-columns:1fr;
+      }
+      .vCard{
+        min-height:94px;
+      }
+      .modalTitle{
+        font-size:13px;
+      }
+      .modalBody{
+        font-size:13px;
+      }
+    }
+
   </style>
 </head>
 
@@ -499,10 +672,10 @@
   <div class="wrap">
     <header>
       <div class="title">
-        <h1>WGLT Quote Lightning: Memory Pro</h1>
-        <div class="sub">Fast Play • Tap-only • 4 Modes • Pan-African theme</div>
+        <h1>WGLT Quote Lightning: Wisdom Edition</h1>
+        <div class="sub">Fast Play • 3 strikes • Poster-inspired glow • Blackish website-ready theme</div>
       </div>
-      <div class="badge"><span class="dot"></span> Fast Play Bundle</div>
+      <div class="badge"><span class="dot"></span> Wisdom Quotes Arcade</div>
     </header>
 
     <div class="grid">
@@ -520,31 +693,33 @@
           <div>
             <label>Category (only used when “Choose Category”)</label>
             <select id="category">
-              <option value="Civil Rights">Civil Rights</option>
+              <option value="Public Activists">Public Activists</option>
+              <option value="Sports">Sports</option>
+              <option value="Professions">Professions</option>
+              <option value="The Arts">The Arts</option>
+              <option value="Entertainers">Entertainers</option>
+              <option value="Comedians">Comedians</option>
+              <option value="Musicians">Musicians</option>
               <option value="Inventors">Inventors</option>
-              <option value="Historians">Historians</option>
-              <option value="Entrepreneurs">Entrepreneurs</option>
               <option value="Military">Military</option>
-              <option value="Artists">Artists & Entertainers</option>
-              <option value="Athletes">Athletes</option>
-            </select>
+              </select>
           </div>
 
           <div class="row">
             <div style="flex:1;min-width:180px;">
               <label>Fast Play Set</label>
               <select id="sessionSize">
-                <option value="8" selected>8 Rounds</option>
-                <option value="5">5 Rounds</option>
+                <option value="8">8 Rounds</option>
+                <option value="5" selected>5 Rounds</option>
                 <option value="10">10 Rounds</option>
               </select>
             </div>
             <div style="flex:1;min-width:180px;">
               <label>Show Time</label>
               <select id="showTime">
-                <option value="3" selected>3s (Memory Pro)</option>
-                <option value="4">4s</option>
-                <option value="5">5s</option>
+                <option value="3">3s</option>
+                <option value="6">6s</option>
+                <option value="10" selected>10s (Default)</option>
               </select>
             </div>
           </div>
@@ -561,7 +736,10 @@
 
           <div class="endBox" id="endBox">
             <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;">
-              <div style="font-weight:800;">Session Results</div>
+              <div>
+                <div style="font-weight:800;">Session Results</div>
+                <div id="endStatus" style="font-size:12px;color:var(--muted);margin-top:4px;">Ready for the next run.</div>
+              </div>
               <button id="playAgainBtn" class="btnRed">Play Again</button>
             </div>
             <div class="endGrid" style="margin-top:10px;">
@@ -591,6 +769,14 @@
             <div class="hudBox">
               <div class="k">Streak</div>
               <div class="v" id="streakNow">0</div>
+            </div>
+            <div class="hudBox">
+              <div class="k">Strikes</div>
+              <div class="v strikeWrap" id="strikesWrap">
+                <span class="strikeDot" id="strike1"></span>
+                <span class="strikeDot" id="strike2"></span>
+                <span class="strikeDot" id="strike3"></span>
+              </div>
             </div>
 
             <div class="ring" id="timerRing" title="Round timer">
@@ -658,118 +844,1041 @@
        ========================= */
     const QUOTES = [
       {
-        id:"mlk-1",
-        category:"Civil Rights",
-        text:"Injustice anywhere is a threat to justice everywhere.",
-        speaker:"Martin Luther King Jr.",
-        context:"From 'Letter from Birmingham Jail' (1963).",
-        visual: {
-          correct: { label:"Justice", icon:"⚖️" },
-          wrong: [
-            { label:"Invention", icon:"💡" },
-            { label:"Sports", icon:"🏅" }
-          ]
-        }
+            "id": "mlk-1",
+            "category": "Public Activists",
+            "text": "Injustice anywhere is a threat to justice everywhere.",
+            "speaker": "Martin Luther King Jr.",
+            "context": "From 'Letter from Birmingham Jail' (1963).",
+            "visual": {
+                  "correct": {
+                        "label": "Justice",
+                        "icon": "⚖️"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Invention",
+                              "icon": "💡"
+                        },
+                        {
+                              "label": "Sports",
+                              "icon": "🏅"
+                        }
+                  ]
+            }
       },
       {
-        id:"mandela-1",
-        category:"Civil Rights",
-        text:"Education is the most powerful weapon which you can use to change the world.",
-        speaker:"Nelson Mandela",
-        context:"Often quoted in education advocacy contexts.",
-        visual: {
-          correct: { label:"Education", icon:"🎓" },
-          wrong: [
-            { label:"Weather", icon:"🌧️" },
-            { label:"Music", icon:"🎶" }
-          ]
-        }
+            "id": "mx-1",
+            "category": "Public Activists",
+            "text": "Education is the passport to the future, for tomorrow belongs to those who prepare for it today.",
+            "speaker": "Malcolm X",
+            "context": "A widely cited quote about education and preparation.",
+            "visual": {
+                  "correct": {
+                        "label": "Education",
+                        "icon": "🎓"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Comedy",
+                              "icon": "🎭"
+                        },
+                        {
+                              "label": "Music",
+                              "icon": "🎶"
+                        }
+                  ]
+            }
       },
       {
-        id:"wheatley-1",
-        category:"Artists",
-        text:"In every human breast, God has implanted a principle, which we call love of freedom.",
-        speaker:"Phillis Wheatley",
-        context:"Poet and the first published African American female author.",
-        visual: {
-          correct: { label:"Freedom", icon:"🕊️" },
-          wrong: [
-            { label:"Money", icon:"💵" },
-            { label:"Robots", icon:"🤖" }
-          ]
-        }
+            "id": "parks-1",
+            "category": "Public Activists",
+            "text": "I would like to be remembered as a person who wanted to be free so other people would be also free.",
+            "speaker": "Rosa Parks",
+            "context": "A quote reflecting Rosa Parks’ role in the freedom movement.",
+            "visual": {
+                  "correct": {
+                        "label": "Freedom",
+                        "icon": "🕊️"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Cooking",
+                              "icon": "🍳"
+                        },
+                        {
+                              "label": "Military",
+                              "icon": "🪖"
+                        }
+                  ]
+            }
       },
       {
-        id:"carver-1",
-        category:"Inventors",
-        text:"It is not the style of clothes one wears, neither the kind of automobile one drives, nor the amount of money in the bank account. These mean nothing. It is simply service that measures success.",
-        speaker:"George Washington Carver",
-        context:"Scientist and educator known for agricultural innovations.",
-        visual: {
-          correct: { label:"Service", icon:"🤝" },
-          wrong: [
-            { label:"Luxury", icon:"🚗" },
-            { label:"Fame", icon:"📸" }
-          ]
-        }
+            "id": "lewis-1",
+            "category": "Public Activists",
+            "text": "Never, ever be afraid to make some noise and get in good trouble, necessary trouble.",
+            "speaker": "John Lewis",
+            "context": "A famous call to courage and civic action.",
+            "visual": {
+                  "correct": {
+                        "label": "Courage",
+                        "icon": "📣"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Recipes",
+                              "icon": "🥘"
+                        },
+                        {
+                              "label": "Astronomy",
+                              "icon": "🌌"
+                        }
+                  ]
+            }
       },
       {
-        id:"webdubois-1",
-        category:"Historians",
-        text:"Education must not simply teach work, it must teach life.",
-        speaker:"W.E.B. Du Bois",
-        context:"Scholar and co-founder of the NAACP.",
-        visual: {
-          correct: { label:"Learning", icon:"📚" },
-          wrong: [
-            { label:"Cooking", icon:"🍳" },
-            { label:"Space", icon:"🪐" }
-          ]
-        }
+            "id": "hamer-1",
+            "category": "Public Activists",
+            "text": "Nobody's free until everybody's free.",
+            "speaker": "Fannie Lou Hamer",
+            "context": "A well-known quote about collective freedom.",
+            "visual": {
+                  "correct": {
+                        "label": "Equality",
+                        "icon": "🤝"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Robots",
+                              "icon": "🤖"
+                        },
+                        {
+                              "label": "Baseball",
+                              "icon": "⚾"
+                        }
+                  ]
+            }
       },
       {
-        id:"madamcj-1",
-        category:"Entrepreneurs",
-        text:"I am a woman who came from the cotton fields of the South. From there I was promoted to the wash-tub. From there I was promoted to the kitchen. And from there I promoted myself into the business of manufacturing hair goods and preparations.",
-        speaker:"Madam C.J. Walker",
-        context:"First self-made female millionaire in the U.S. (commonly cited).",
-        visual: {
-          correct: { label:"Business", icon:"🏪" },
-          wrong: [
-            { label:"Ocean", icon:"🌊" },
-            { label:"Dinosaurs", icon:"🦖" }
-          ]
-        }
+            "id": "ali-1",
+            "category": "Sports",
+            "text": "Service to others is the rent you pay for your room here on earth.",
+            "speaker": "Muhammad Ali",
+            "context": "A famous quote about purpose and serving others.",
+            "visual": {
+                  "correct": {
+                        "label": "Service",
+                        "icon": "🤝"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Space",
+                              "icon": "🪐"
+                        },
+                        {
+                              "label": "Painting",
+                              "icon": "🎨"
+                        }
+                  ]
+            }
       },
       {
-        id:"jackierob-1",
-        category:"Athletes",
-        text:"A life is not important except in the impact it has on other lives.",
-        speaker:"Jackie Robinson",
-        context:"Baseball legend who broke MLB’s color barrier.",
-        visual: {
-          correct: { label:"Impact", icon:"🌍" },
-          wrong: [
-            { label:"Gadgets", icon:"📱" },
-            { label:"Dessert", icon:"🍨" }
-          ]
-        }
+            "id": "serena-1",
+            "category": "Sports",
+            "text": "Every woman's success should be an inspiration to another. We're strongest when we cheer each other on.",
+            "speaker": "Serena Williams",
+            "context": "A quote about encouragement and empowerment.",
+            "visual": {
+                  "correct": {
+                        "label": "Support",
+                        "icon": "👏"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Invention",
+                              "icon": "🔧"
+                        },
+                        {
+                              "label": "History",
+                              "icon": "📜"
+                        }
+                  ]
+            }
       },
       {
-        id:"powell-1",
-        category:"Military",
-        text:"There are no secrets to success. It is the result of preparation, hard work, and learning from failure.",
-        speaker:"Colin Powell",
-        context:"U.S. Army general and statesman.",
-        visual: {
-          correct: { label:"Preparation", icon:"🧭" },
-          wrong: [
-            { label:"Luck", icon:"🍀" },
-            { label:"Magic", icon:"🪄" }
-          ]
-        }
+            "id": "jackierob-1",
+            "category": "Sports",
+            "text": "A life is not important except in the impact it has on other lives.",
+            "speaker": "Jackie Robinson",
+            "context": "Baseball legend who broke MLB’s color barrier.",
+            "visual": {
+                  "correct": {
+                        "label": "Impact",
+                        "icon": "🌍"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Gadgets",
+                              "icon": "📱"
+                        },
+                        {
+                              "label": "Dessert",
+                              "icon": "🍨"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "wilma-1",
+            "category": "Sports",
+            "text": "The triumph can't be had without the struggle.",
+            "speaker": "Wilma Rudolph",
+            "context": "A well-known quote about perseverance.",
+            "visual": {
+                  "correct": {
+                        "label": "Perseverance",
+                        "icon": "🏁"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Banking",
+                              "icon": "🏦"
+                        },
+                        {
+                              "label": "Music",
+                              "icon": "🎵"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "arthurashe-1",
+            "category": "Sports",
+            "text": "Start where you are. Use what you have. Do what you can.",
+            "speaker": "Arthur Ashe",
+            "context": "A classic quote about taking action with what you have.",
+            "visual": {
+                  "correct": {
+                        "label": "Action",
+                        "icon": "🎯"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Cooking",
+                              "icon": "🍲"
+                        },
+                        {
+                              "label": "Dinosaurs",
+                              "icon": "🦕"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "webdubois-1",
+            "category": "Professions",
+            "text": "Education must not simply teach work, it must teach life.",
+            "speaker": "W.E.B. Du Bois",
+            "context": "Scholar, sociologist, and co-founder of the NAACP.",
+            "visual": {
+                  "correct": {
+                        "label": "Learning",
+                        "icon": "📚"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Cooking",
+                              "icon": "🍳"
+                        },
+                        {
+                              "label": "Space",
+                              "icon": "🪐"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "mae-1",
+            "category": "Professions",
+            "text": "Never limit yourself because of others' limited imagination; never limit others because of your own limited imagination.",
+            "speaker": "Mae Jemison",
+            "context": "A well-known quote about possibility and vision.",
+            "visual": {
+                  "correct": {
+                        "label": "Possibility",
+                        "icon": "🚀"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Fishing",
+                              "icon": "🎣"
+                        },
+                        {
+                              "label": "Traffic",
+                              "icon": "🚦"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "donald-1",
+            "category": "Professions",
+            "text": "The only thing that is going to make you happy is being happy with who you are.",
+            "speaker": "Donald Glover",
+            "context": "A quote about identity and self-confidence.",
+            "visual": {
+                  "correct": {
+                        "label": "Confidence",
+                        "icon": "✨"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Welding",
+                              "icon": "🧰"
+                        },
+                        {
+                              "label": "Hockey",
+                              "icon": "🏒"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "woodson-1",
+            "category": "Professions",
+            "text": "If a race has no history, it has no worthwhile tradition.",
+            "speaker": "Carter G. Woodson",
+            "context": "A well-known quote about the importance of history.",
+            "visual": {
+                  "correct": {
+                        "label": "History",
+                        "icon": "📜"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Recipes",
+                              "icon": "🥗"
+                        },
+                        {
+                              "label": "Volcanoes",
+                              "icon": "🌋"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "katherine-1",
+            "category": "Professions",
+            "text": "We will always have STEM with us. Some things will drop out of the public eye and go away, but there will always be science, engineering, and technology.",
+            "speaker": "Katherine Johnson",
+            "context": "A quote about the lasting importance of STEM.",
+            "visual": {
+                  "correct": {
+                        "label": "STEM",
+                        "icon": "🧮"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Dance",
+                              "icon": "💃"
+                        },
+                        {
+                              "label": "Beach",
+                              "icon": "🏖️"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "wheatley-1",
+            "category": "The Arts",
+            "text": "In every human breast, God has implanted a principle, which we call love of freedom.",
+            "speaker": "Phillis Wheatley",
+            "context": "Poet and the first published African American female author.",
+            "visual": {
+                  "correct": {
+                        "label": "Freedom",
+                        "icon": "🕊️"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Money",
+                              "icon": "💵"
+                        },
+                        {
+                              "label": "Robots",
+                              "icon": "🤖"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "lawrence-1",
+            "category": "The Arts",
+            "text": "I am part of the black community, and my work reflects that community.",
+            "speaker": "Jacob Lawrence",
+            "context": "A quote tied to Jacob Lawrence’s art and storytelling.",
+            "visual": {
+                  "correct": {
+                        "label": "Community",
+                        "icon": "🏘️"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Sports",
+                              "icon": "⚽"
+                        },
+                        {
+                              "label": "Science",
+                              "icon": "🔬"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "ringgold-1",
+            "category": "The Arts",
+            "text": "Art is a voice of freedom and justice.",
+            "speaker": "Faith Ringgold",
+            "context": "A concise teaching quote aligned with Ringgold’s artistic activism.",
+            "visual": {
+                  "correct": {
+                        "label": "Art",
+                        "icon": "🎨"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Banking",
+                              "icon": "🏦"
+                        },
+                        {
+                              "label": "Astronomy",
+                              "icon": "🌌"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "maya-1",
+            "category": "The Arts",
+            "text": "You can't use up creativity. The more you use, the more you have.",
+            "speaker": "Maya Angelou",
+            "context": "A well-known quote about creativity and expression.",
+            "visual": {
+                  "correct": {
+                        "label": "Creativity",
+                        "icon": "🖌️"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Football",
+                              "icon": "🏈"
+                        },
+                        {
+                              "label": "Chemistry",
+                              "icon": "⚗️"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "bearden-1",
+            "category": "The Arts",
+            "text": "The artist has to be something like a whale, swimming with his mouth wide open, absorbing everything until he has what he really needs.",
+            "speaker": "Romare Bearden",
+            "context": "A famous quote about how artists gather inspiration.",
+            "visual": {
+                  "correct": {
+                        "label": "Inspiration",
+                        "icon": "🌊"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Tennis",
+                              "icon": "🎾"
+                        },
+                        {
+                              "label": "Mountains",
+                              "icon": "⛰️"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "poitier-1",
+            "category": "Entertainers",
+            "text": "To simply wake up every morning a better person than when I went to bed.",
+            "speaker": "Sidney Poitier",
+            "context": "A quote about growth and character.",
+            "visual": {
+                  "correct": {
+                        "label": "Growth",
+                        "icon": "🌱"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Machines",
+                              "icon": "⚙️"
+                        },
+                        {
+                              "label": "Volcanoes",
+                              "icon": "🌋"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "halle-1",
+            "category": "Entertainers",
+            "text": "Know the worth of your gifts.",
+            "speaker": "Halle Berry",
+            "context": "A short quote about self-worth and talent.",
+            "visual": {
+                  "correct": {
+                        "label": "Self-Worth",
+                        "icon": "💎"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Recipes",
+                              "icon": "🥘"
+                        },
+                        {
+                              "label": "Maps",
+                              "icon": "🗺️"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "denzel-1",
+            "category": "Entertainers",
+            "text": "Do what you have to do, to do what you want to do.",
+            "speaker": "Denzel Washington",
+            "context": "A quote about discipline and long-term goals.",
+            "visual": {
+                  "correct": {
+                        "label": "Discipline",
+                        "icon": "🧱"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Dinosaurs",
+                              "icon": "🦕"
+                        },
+                        {
+                              "label": "Beach",
+                              "icon": "🏖️"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "oprah-1",
+            "category": "Entertainers",
+            "text": "Turn your wounds into wisdom.",
+            "speaker": "Oprah Winfrey",
+            "context": "A famous quote about growth through experience.",
+            "visual": {
+                  "correct": {
+                        "label": "Wisdom",
+                        "icon": "🦉"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Traffic",
+                              "icon": "🚗"
+                        },
+                        {
+                              "label": "Snow",
+                              "icon": "❄️"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "cicely-1",
+            "category": "Entertainers",
+            "text": "Challenges make you discover things about yourself that you never really knew.",
+            "speaker": "Cicely Tyson",
+            "context": "A quote about resilience and self-discovery.",
+            "visual": {
+                  "correct": {
+                        "label": "Resilience",
+                        "icon": "🛡️"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Gardening",
+                              "icon": "🌻"
+                        },
+                        {
+                              "label": "Baseball",
+                              "icon": "⚾"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "pryor-1",
+            "category": "Comedians",
+            "text": "There’s a thin line between to laugh with and to laugh at.",
+            "speaker": "Richard Pryor",
+            "context": "A quote about humor and perspective.",
+            "visual": {
+                  "correct": {
+                        "label": "Humor",
+                        "icon": "😂"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Welding",
+                              "icon": "🧰"
+                        },
+                        {
+                              "label": "Space",
+                              "icon": "🚀"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "eddie-1",
+            "category": "Comedians",
+            "text": "You can’t let praise or criticism get to you. It’s a weakness to get caught up in either one.",
+            "speaker": "Eddie Murphy",
+            "context": "A quote about staying balanced.",
+            "visual": {
+                  "correct": {
+                        "label": "Balance",
+                        "icon": "⚖️"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Traffic",
+                              "icon": "🚦"
+                        },
+                        {
+                              "label": "Biology",
+                              "icon": "🧬"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "whoopi-1",
+            "category": "Comedians",
+            "text": "We’re here for a reason. I believe a bit of the reason is to throw little torches out to lead people through the dark.",
+            "speaker": "Whoopi Goldberg",
+            "context": "A quote about helping guide others.",
+            "visual": {
+                  "correct": {
+                        "label": "Guidance",
+                        "icon": "🕯️"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Fishing",
+                              "icon": "🎣"
+                        },
+                        {
+                              "label": "Basketball",
+                              "icon": "🏀"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "chappelle-1",
+            "category": "Comedians",
+            "text": "The mark of greatness is when everything before you is obsolete, and everything after you bears your mark.",
+            "speaker": "Dave Chappelle",
+            "context": "A quote about impact and originality.",
+            "visual": {
+                  "correct": {
+                        "label": "Originality",
+                        "icon": "🌟"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Astronomy",
+                              "icon": "🪐"
+                        },
+                        {
+                              "label": "Cooking",
+                              "icon": "🍝"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "haddish-1",
+            "category": "Comedians",
+            "text": "People want somebody real. People want to laugh and cry and feel like it's okay to be human.",
+            "speaker": "Tiffany Haddish",
+            "context": "A quote about authenticity and human connection.",
+            "visual": {
+                  "correct": {
+                        "label": "Authenticity",
+                        "icon": "❤️"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Architecture",
+                              "icon": "🏛️"
+                        },
+                        {
+                              "label": "Hockey",
+                              "icon": "🏒"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "louis-1",
+            "category": "Musicians",
+            "text": "Musicians don’t retire; they stop when there’s no more music in them.",
+            "speaker": "Louis Armstrong",
+            "context": "A quote about lifelong passion for music.",
+            "visual": {
+                  "correct": {
+                        "label": "Music",
+                        "icon": "🎺"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Architecture",
+                              "icon": "🏛️"
+                        },
+                        {
+                              "label": "Farming",
+                              "icon": "🌾"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "aretha-1",
+            "category": "Musicians",
+            "text": "Be your own artist, and always be confident in what you’re doing.",
+            "speaker": "Aretha Franklin",
+            "context": "A quote about confidence and artistry.",
+            "visual": {
+                  "correct": {
+                        "label": "Confidence",
+                        "icon": "✨"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Chemistry",
+                              "icon": "⚗️"
+                        },
+                        {
+                              "label": "Football",
+                              "icon": "🏈"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "stevie-1",
+            "category": "Musicians",
+            "text": "Time is long but life is short.",
+            "speaker": "Stevie Wonder",
+            "context": "A reflective quote about time and life.",
+            "visual": {
+                  "correct": {
+                        "label": "Life",
+                        "icon": "⏳"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Robots",
+                              "icon": "🤖"
+                        },
+                        {
+                              "label": "Hockey",
+                              "icon": "🏒"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "nina-1",
+            "category": "Musicians",
+            "text": "It's an artist's duty to reflect the times.",
+            "speaker": "Nina Simone",
+            "context": "A famous quote about art and responsibility.",
+            "visual": {
+                  "correct": {
+                        "label": "Responsibility",
+                        "icon": "🪞"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Tennis",
+                              "icon": "🎾"
+                        },
+                        {
+                              "label": "Baking",
+                              "icon": "🧁"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "ellington-1",
+            "category": "Musicians",
+            "text": "A problem is a chance for you to do your best.",
+            "speaker": "Duke Ellington",
+            "context": "A classic quote about effort and excellence.",
+            "visual": {
+                  "correct": {
+                        "label": "Excellence",
+                        "icon": "🏆"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Dinosaurs",
+                              "icon": "🦖"
+                        },
+                        {
+                              "label": "Sailing",
+                              "icon": "⛵"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "carver-1",
+            "category": "Inventors",
+            "text": "It is simply service that measures success.",
+            "speaker": "George Washington Carver",
+            "context": "Scientist and educator known for agricultural innovations.",
+            "visual": {
+                  "correct": {
+                        "label": "Service",
+                        "icon": "🤝"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Luxury",
+                              "icon": "🚗"
+                        },
+                        {
+                              "label": "Fame",
+                              "icon": "📸"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "woods-1",
+            "category": "Inventors",
+            "text": "Better systems create better possibilities.",
+            "speaker": "Granville T. Woods",
+            "context": "A classroom-friendly quote theme for a prolific inventor and engineer.",
+            "visual": {
+                  "correct": {
+                        "label": "Innovation",
+                        "icon": "💡"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Comedy",
+                              "icon": "🤣"
+                        },
+                        {
+                              "label": "Dance",
+                              "icon": "💃"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "lonnie-1",
+            "category": "Inventors",
+            "text": "Curiosity can turn imagination into invention.",
+            "speaker": "Lonnie Johnson",
+            "context": "A teaching quote aligned with inventor Lonnie Johnson’s story.",
+            "visual": {
+                  "correct": {
+                        "label": "Curiosity",
+                        "icon": "🔍"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Baseball",
+                              "icon": "⚾"
+                        },
+                        {
+                              "label": "Mountains",
+                              "icon": "⛰️"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "madamcj-1",
+            "category": "Inventors",
+            "text": "I got my start by giving myself a start.",
+            "speaker": "Madam C.J. Walker",
+            "context": "A quote about self-starting and building something new.",
+            "visual": {
+                  "correct": {
+                        "label": "Initiative",
+                        "icon": "🏪"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Ocean",
+                              "icon": "🌊"
+                        },
+                        {
+                              "label": "Theater",
+                              "icon": "🎭"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "garrett-1",
+            "category": "Inventors",
+            "text": "If you can be the best, then why not try to be the best?",
+            "speaker": "Garrett Morgan",
+            "context": "A motivational quote attributed to inventor Garrett Morgan.",
+            "visual": {
+                  "correct": {
+                        "label": "Excellence",
+                        "icon": "🔧"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Music",
+                              "icon": "🎵"
+                        },
+                        {
+                              "label": "Weather",
+                              "icon": "🌧️"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "powell-1",
+            "category": "Military",
+            "text": "There are no secrets to success. It is the result of preparation, hard work, and learning from failure.",
+            "speaker": "Colin Powell",
+            "context": "U.S. Army general and statesman.",
+            "visual": {
+                  "correct": {
+                        "label": "Preparation",
+                        "icon": "🧭"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Luck",
+                              "icon": "🍀"
+                        },
+                        {
+                              "label": "Magic",
+                              "icon": "🪄"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "davis-1",
+            "category": "Military",
+            "text": "Courage and determination make opportunity possible.",
+            "speaker": "Benjamin O. Davis Jr.",
+            "context": "A classroom quote theme tied to the Tuskegee Airmen leader.",
+            "visual": {
+                  "correct": {
+                        "label": "Courage",
+                        "icon": "🦁"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Music",
+                              "icon": "🎼"
+                        },
+                        {
+                              "label": "Art",
+                              "icon": "🖌️"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "bolden-1",
+            "category": "Military",
+            "text": "The more we explore, the more we discover about ourselves.",
+            "speaker": "Charles Bolden",
+            "context": "Marine major general and astronaut.",
+            "visual": {
+                  "correct": {
+                        "label": "Exploration",
+                        "icon": "🚀"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Cooking",
+                              "icon": "🍲"
+                        },
+                        {
+                              "label": "Tennis",
+                              "icon": "🎾"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "dorismiller-1",
+            "category": "Military",
+            "text": "Courage shows up when duty calls.",
+            "speaker": "Doris Miller",
+            "context": "A classroom-friendly line for discussing bravery and service.",
+            "visual": {
+                  "correct": {
+                        "label": "Duty",
+                        "icon": "🪖"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Comedy",
+                              "icon": "🤣"
+                        },
+                        {
+                              "label": "Gardening",
+                              "icon": "🌱"
+                        }
+                  ]
+            }
+      },
+      {
+            "id": "chappiejames-1",
+            "category": "Military",
+            "text": "Leadership grows when responsibility meets action.",
+            "speaker": "Daniel 'Chappie' James Jr.",
+            "context": "A classroom-friendly line for discussing leadership in military service.",
+            "visual": {
+                  "correct": {
+                        "label": "Leadership",
+                        "icon": "⭐"
+                  },
+                  "wrong": [
+                        {
+                              "label": "Fishing",
+                              "icon": "🎣"
+                        },
+                        {
+                              "label": "Baking",
+                              "icon": "🍰"
+                        }
+                  ]
+            }
       }
-    ];
+];
 
     /* =========================
        MODE ROTATION (Fast Play)
@@ -799,6 +1908,10 @@
       roundTotal: document.getElementById("roundTotal"),
       scoreNow: document.getElementById("scoreNow"),
       streakNow: document.getElementById("streakNow"),
+      strike1: document.getElementById("strike1"),
+      strike2: document.getElementById("strike2"),
+      strike3: document.getElementById("strike3"),
+      strikesWrap: document.getElementById("strikesWrap"),
 
       quoteBox: document.getElementById("quoteBox"),
       promptLine: document.getElementById("promptLine"),
@@ -832,20 +1945,26 @@
       statScore: document.getElementById("statScore"),
       statAcc: document.getElementById("statAcc"),
       statStreak: document.getElementById("statStreak"),
-      statFast: document.getElementById("statFast")
+      statFast: document.getElementById("statFast"),
+      endStatus: document.getElementById("endStatus")
     };
 
     const state = {
       running:false,
       roundIndex:0,
-      totalRounds:8,
-      showSeconds:3,
+      totalRounds:5,
+      showSeconds:10,
 
       score:0,
       streak:0,
       fastestMs:null,
       correctCount:0,
       attemptCount:0,
+      strikes:0,
+      maxStrikes:3,
+      pendingAdvance:false,
+      lastResultCorrect:false,
+      endReason:"complete",
 
       currentMode:"storm",
       currentQuote:null,
@@ -913,6 +2032,14 @@
       els.roundTotal.textContent = state.totalRounds;
       els.scoreNow.textContent = state.score;
       els.streakNow.textContent = state.streak;
+      updateStrikes();
+    }
+
+    function updateStrikes(){
+      const dots = [els.strike1, els.strike2, els.strike3];
+      dots.forEach((dot, idx)=>{
+        dot.classList.toggle("used", idx < state.strikes);
+      });
     }
 
     function setQuoteBox(text){
@@ -983,39 +2110,47 @@
       return opts[Math.floor(Math.random()*opts.length)];
     }
 
-    function beginRound(){
-      state.currentQuote = pickQuote();
-      let mode = getRotationMode(state.roundIndex);
-      if(mode === "mix") mode = resolveMixMode();
+    function startRound(quote, mode){
+      state.currentQuote = quote;
       state.currentMode = mode;
+      state.pendingAdvance = false;
+      state.lastResultCorrect = false;
 
       setModeUI(mode);
       updateHUD();
 
-      // clear UIs
       els.promptLine.textContent = "";
       resetTimerRing();
       clearStormState();
       clearFillState();
       clearVisualState();
 
-      // show quote briefly
       const showS = state.showSeconds;
       setQuoteBox(state.currentQuote.text);
 
-      // after show time, hide & start challenge
       clearTimeout(state.showTimer);
       state.showTimer = setTimeout(()=>{
         setQuoteBox("⚡ Go!");
         if(mode === "storm") setupStorm();
         if(mode === "fill") setupFill();
         if(mode === "visual") setupVisual();
-        // solve time depends on mode/length
         const tokenCount = normTokenize(state.currentQuote.text).length;
         const base = (mode==="visual") ? 10 : (mode==="fill" ? 16 : 22);
         const extra = Math.min(10, Math.floor(tokenCount/6));
         startSolveTimer(base + extra);
       }, showS * 1000);
+    }
+
+    function beginRound(){
+      const quote = pickQuote();
+      let mode = getRotationMode(state.roundIndex);
+      if(mode === "mix") mode = resolveMixMode();
+      startRound(quote, mode);
+    }
+
+    function restartCurrentRound(){
+      if(!state.currentQuote || !state.currentMode) return;
+      startRound(state.currentQuote, state.currentMode);
     }
 
     /* ========= Word Storm ========= */
@@ -1276,17 +2411,16 @@
 
       state.correctCount++;
       state.attemptCount++;
-
       state.streak++;
-      // scoring: base + speed bonus + streak bonus
+      state.lastResultCorrect = true;
+      state.pendingAdvance = true;
+
       const speedBonus = Math.max(0, Math.round((state.roundSeconds*1000 - elapsedMs)/120));
       const base = 300;
       const streakBonus = Math.min(250, state.streak * 25);
       state.score += (base + speedBonus + streakBonus);
 
       updateHUD();
-
-      // popup with speaker
       openModal(true, msg);
     }
 
@@ -1294,21 +2428,38 @@
       clearInterval(state.roundTimer);
       state.attemptCount++;
       state.streak = 0;
+      state.strikes = Math.min(state.maxStrikes, state.strikes + 1);
+      state.lastResultCorrect = false;
+      state.pendingAdvance = false;
       updateHUD();
-      openModal(false, msg);
+
+      if(state.strikes >= state.maxStrikes){
+        state.endReason = "strikes";
+        openModal(false, `${msg} Strike ${state.strikes} of ${state.maxStrikes}. No tries left.`);
+      }else{
+        const left = state.maxStrikes - state.strikes;
+        openModal(false, `${msg} Strike ${state.strikes} of ${state.maxStrikes}. ${left} ${left===1?"try":"tries"} left.`);
+      }
     }
 
     function openModal(isCorrect, msg){
-      els.modalTitle.textContent = isCorrect ? "Correct ⚡" : "Try Again ⚡";
+      const outOfStrikes = !isCorrect && state.strikes >= state.maxStrikes;
+      els.modalTitle.textContent = isCorrect ? "Correct ⚡" : (outOfStrikes ? "Out of Strikes" : "Try Again ⚡");
       els.modalMsg.textContent = msg;
 
-      // Speaker popup (your request)
       const q = state.currentQuote;
-      els.modalSpeaker.innerHTML = `
-        <div><b>Who said it:</b> ${escapeHtml(q.speaker)}</div>
-        <div style="margin-top:6px;color:var(--muted);font-size:12px;">${escapeHtml(q.context || "")}</div>
-      `;
+      if(isCorrect || outOfStrikes){
+        els.modalSpeaker.innerHTML = `
+          <div><b>Who said it:</b> ${escapeHtml(q.speaker)}</div>
+          <div style="margin-top:6px;color:var(--muted);font-size:12px;">${escapeHtml(q.context || "")}</div>
+        `;
+        els.modalSpeaker.style.display = "block";
+      }else{
+        els.modalSpeaker.innerHTML = `<div><b>No giveaway yet.</b> Take another shot at this round.</div>`;
+        els.modalSpeaker.style.display = "block";
+      }
 
+      els.nextBtn.textContent = isCorrect ? "Next Round" : (outOfStrikes ? "See Results" : "Try Again");
       els.modalBackdrop.style.display = "flex";
     }
 
@@ -1319,27 +2470,40 @@
     function nextRound(){
       closeModal();
 
-      // move forward
-      state.roundIndex++;
-      if(state.roundIndex >= state.totalRounds){
+      if(state.lastResultCorrect){
+        state.roundIndex++;
+        if(state.roundIndex >= state.totalRounds){
+          state.endReason = "complete";
+          endSession();
+          return;
+        }
+        beginRound();
+        return;
+      }
+
+      if(state.strikes >= state.maxStrikes){
         endSession();
         return;
       }
-      beginRound();
+
+      restartCurrentRound();
     }
 
     function endSession(){
       state.running = false;
-      setQuoteBox("Session Complete ✅");
-      els.promptLine.textContent = "Check your results on the left.";
+      const clearedAll = state.endReason !== "strikes";
+      setQuoteBox(clearedAll ? "Session Complete ✅" : "Game Over • Out of Strikes");
+      els.promptLine.textContent = clearedAll ? "Check your results on the left." : "You used all 3 strikes. Hit Play Again for another run.";
       setModeUI("mix");
       resetTimerRing();
 
-      // results
       const acc = state.attemptCount ? Math.round((state.correctCount/state.attemptCount)*100) : 0;
       els.statScore.textContent = state.score;
       els.statAcc.textContent = acc + "%";
-      els.statStreak.textContent = state.correctCount ? state.correctCount : 0;
+      els.statStreak.textContent = state.streak;
+      els.endStatus.textContent = clearedAll
+        ? `You cleared ${state.totalRounds} rounds with ${state.maxStrikes - state.strikes} strike${state.maxStrikes - state.strikes === 1 ? '' : 's'} left.`
+        : `You made it to round ${Math.min(state.roundIndex + 1, state.totalRounds)} before the strike meter filled up.`;
 
       if(state.fastestMs !== null){
         els.statFast.textContent = (state.fastestMs/1000).toFixed(1) + "s";
@@ -1365,6 +2529,10 @@
       state.fastestMs = null;
       state.correctCount = 0;
       state.attemptCount = 0;
+      state.strikes = 0;
+      state.pendingAdvance = false;
+      state.lastResultCorrect = false;
+      state.endReason = "complete";
 
       state.currentMode = "storm";
       state.currentQuote = null;
@@ -1376,6 +2544,7 @@
       resetTimerRing();
 
       els.endBox.style.display = "none";
+      els.endStatus.textContent = "Ready for the next run.";
       clearStormState(); clearFillState(); clearVisualState();
       setQuoteBox("Press “Start Fast Play ⚡” to begin.");
       els.promptLine.textContent = "";
@@ -1420,12 +2589,14 @@
 
     // initial
     resetAll();
-    
-    /* Tell Wix the game finished loading */
-if (window.parent) {
-  window.parent.postMessage({ type: "WGLT_READY" }, "*");
-}
-
   </script>
+  <script>
+/* Notify Wix loader that the HTML game is ready */
+window.addEventListener("load", function () {
+  if (window.parent) {
+    window.parent.postMessage({ type: "WGLT_READY" }, "*");
+  }
+});
+</script>
 </body>
 </html>
