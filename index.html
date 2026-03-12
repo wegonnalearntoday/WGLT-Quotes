@@ -152,7 +152,8 @@
       font-size:14px;
       outline:none;
     }
-    select{ width:100%; }
+    select{ width:100%; background:#000; color:var(--text); }
+    select option{ background:#000; color:var(--text); }
     button{
       background:linear-gradient(180deg, rgba(232,192,107,.30), rgba(199,131,55,.15));
       cursor:pointer;
@@ -730,6 +731,8 @@
                 <option value="3">3s</option>
                 <option value="6">6s</option>
                 <option value="10" selected>10s (Default)</option>
+                <option value="15">15s</option>
+                <option value="30">30s</option>
               </select>
             </div>
           </div>
@@ -2144,10 +2147,13 @@
         if(mode === "storm") setupStorm();
         if(mode === "fill") setupFill();
         if(mode === "visual") setupVisual();
-        const tokenCount = normTokenize(state.currentQuote.text).length;
-        const base = (mode==="visual") ? 10 : (mode==="fill" ? 16 : 22);
-        const extra = Math.min(10, Math.floor(tokenCount/6));
-        startSolveTimer(base + extra);
+        let answerTime = 40;
+        if(state.showSeconds === 3) answerTime = 25;
+        else if(state.showSeconds === 6) answerTime = 30;
+        else if(state.showSeconds === 10) answerTime = 40;
+        else if(state.showSeconds === 15) answerTime = 50;
+        else if(state.showSeconds === 30) answerTime = 60;
+        startSolveTimer(answerTime);
       }, showS * 1000);
     }
 
